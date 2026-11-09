@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A clean, responsive to-do list app with task filters and local storage." />
+  <title>Daily Tasks | To-Do App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Daily Tasks home"><span class="brand-mark">✓</span><span>daylist</span></a>
+      <span class="date-label" id="todayLabel"></span>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR PERSONAL SPACE</p>
+        <h1>Make room for<br><span>what matters.</span></h1>
+        <p class="hero-description">A little progress each day adds up to big results.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div><div class="art-card art-card-one">✦</div><div class="art-card art-card-two">✓</div>
+        <div class="art-line line-one"></div><div class="art-line line-two"></div>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="Task manager">
+      <div class="section-heading">
+        <div><p class="eyebrow">STAY ON TRACK</p><h2>Your tasks</h2></div>
+        <div class="progress-pill"><span class="progress-dot"></span><span id="progressText">0 tasks left</span></div>
+      </div>
+
+      <form id="taskForm" class="add-form">
+        <label class="sr-only" for="taskInput">Enter a new task</label>
+        <span class="input-plus" aria-hidden="true">＋</span>
+        <input id="taskInput" type="text" maxlength="120" placeholder="What needs to get done?" autocomplete="off" required />
+        <button class="add-button" type="submit"><span>＋</span> Add task</button>
+      </form>
+      <p class="input-hint" id="inputHint" aria-live="polite">Press Enter to quickly add a task.</p>
+
+      <div class="list-toolbar">
+        <div class="filter-tabs" role="group" aria-label="Filter tasks">
+          <button class="filter-button active" data-filter="all" type="button" aria-pressed="true">All <span id="allCount">0</span></button>
+          <button class="filter-button" data-filter="active" type="button" aria-pressed="false">Active <span id="activeCount">0</span></button>
+          <button class="filter-button" data-filter="completed" type="button" aria-pressed="false">Completed <span id="completedCount">0</span></button>
+        </div>
+        <button id="clearCompleted" class="clear-button" type="button">Clear completed</button>
+      </div>
+
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">✧</div>
+        <h3>Nothing on your list yet</h3>
+        <p>Add a task above and take the first step.</p>
+      </div>
+
+      <footer class="list-footer"><span><span class="save-indicator"></span> Saved automatically on this device</span><span id="footerCount">0 items</span></footer>
+    </section>
+    <p class="page-note">Small steps. Steady progress. <span>✦</span></p>
+  </main>
+</body>
+</html>
